@@ -1,0 +1,39 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="roxana-items-sap:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/roxana_items_sap_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="roxana-items-sap/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="roxana-items-sap" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="commons-logging-1.2" />
+          <element id="library" level="project" name="javax.ws.rs-api-2.0" />
+          <element id="library" level="project" name="jersey-client" />
+          <element id="library" level="project" name="jersey-common" />
+          <element id="library" level="project" name="jersey-container-servlet-core" />
+          <element id="library" level="project" name="jersey-container-servlet" />
+          <element id="library" level="project" name="jersey-server" />
+          <element id="library" level="project" name="spring-aop-5.0.8.RELEASE" />
+          <element id="library" level="project" name="spring-beans-5.0.8.RELEASE" />
+          <element id="library" level="project" name="spring-context-5.0.8.RELEASE" />
+          <element id="library" level="project" name="spring-core-5.0.8.RELEASE" />
+          <element id="library" level="project" name="spring-expression-5.0.8.RELEASE" />
+          <element id="library" level="project" name="spring-web-5.0.8.RELEASE" />
+          <element id="library" level="project" name="junit-4.4" />
+          <element id="library" level="project" name="commons-lang-2.6" />
+          <element id="library" level="project" name="httpclient-4.5.3" />
+          <element id="library" level="project" name="httpcore-4.4.8" />
+          <element id="library" level="project" name="resteasy-jaxrs-3.6.1.Final" />
+          <element id="library" level="project" name="resteasy-client-3.6.1.Final" />
+          <element id="library" level="project" name="jboss-logging-3.3.2.Final" />
+          <element id="library" level="project" name="javax.annotation-api-1.3.2" />
+          <element id="library" level="project" name="jackson-databind-2.9.6" />
+          <element id="library" level="project" name="jackson-core-2.9.6" />
+          <element id="library" level="project" name="jackson-annotations-2.9.6" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

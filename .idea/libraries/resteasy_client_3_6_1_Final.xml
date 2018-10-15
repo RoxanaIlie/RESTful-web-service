@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="resteasy-client-3.6.1.Final">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/resteasy-client-3.6.1.Final.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
