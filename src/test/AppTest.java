@@ -27,12 +27,12 @@ public class AppTest {
 
 
     @Test
-    public void ensureObjectCreated() throws IOException {
+    public void shouldEnsureObjectCreated() throws IOException {
         insertItemWithId(1);
     }
 
     @Test
-    public void getObject() throws IOException {
+    public void shouldMatchFirstItem() throws IOException {
         insertItemWithId(900);
 
         final HttpUriRequest request = new HttpGet(REST_URI);
@@ -52,7 +52,7 @@ public class AppTest {
     }
 
     @Test
-    public void getObjects() throws IOException {
+    public void shouldMatchInsertedObjectSize() throws IOException {
         for (int i = 2; i < 52; i++) {
             insertItemWithId(i);
         }
@@ -74,7 +74,7 @@ public class AppTest {
     }
 
     @Test
-    public void getObjectsLastTwoSeconds() throws IOException, InterruptedException {
+    public void shouldMatchObjectsCreatedInLastTwoSeconds() throws IOException, InterruptedException {
         Thread.sleep(2000);
 
         for (int i = 60; i < 200; ++i) {
@@ -98,7 +98,7 @@ public class AppTest {
     }
 
     @Test
-    public void getObjectsAfterTwoSeconds() throws IOException, InterruptedException {
+    public void shouldExpireObjectsAfterTwoSeconds() throws IOException, InterruptedException {
         Thread.sleep(2000);
 
         final HttpUriRequest request = new HttpGet(REST_URI);

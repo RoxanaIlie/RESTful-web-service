@@ -44,7 +44,6 @@ public class Item {
         return timestamp;
     }
 
-
     public void setTimestamp(Date timestamp) {
         this.timestamp = new Timestamp(timestamp.getTime());
     }

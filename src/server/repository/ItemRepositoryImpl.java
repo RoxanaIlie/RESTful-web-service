@@ -14,6 +14,9 @@ import java.util.LinkedList;
 
 @Component
 public class ItemRepositoryImpl implements ItemRepository {
+    private static final int TIME_INTERVAL_MILISECONDS = 2000;
+    private static final int LATEST_ELEMENTS_NUMBER = 100;
+
     private Deque<Item> itemList;
 
     public ItemRepositoryImpl() {
@@ -26,23 +29,22 @@ public class ItemRepositoryImpl implements ItemRepository {
 
     public Deque<Item> getItems() {
         Deque<Item> resultList = new LinkedList<Item>();
-        if (itemList.size() < 101) {
+        if (itemList.size() <= LATEST_ELEMENTS_NUMBER) {
             resultList.addAll(itemList);
         } else {
             int itemsLastTwoSeconds = 0;
             Timestamp currentTimestamp = new Timestamp((new Date().getTime()));
+
             for (Item item : itemList) {
-                if (currentTimestamp.getTime() - item.getTimestamp().getTime() < 2000) {
+                if (currentTimestamp.getTime() - item.getTimestamp().getTime() < TIME_INTERVAL_MILISECONDS) {
                     itemsLastTwoSeconds++;
                 }
             }
 
-            if (itemsLastTwoSeconds < 101) {
-                int i = 0;
+            if (itemsLastTwoSeconds <= LATEST_ELEMENTS_NUMBER) {
                 for (Item item : itemList) {
                     resultList.addLast(item);
-                    i++;
-                    if (i == 100) {
+                    if (resultList.size() == LATEST_ELEMENTS_NUMBER) {
                         break;
                     }
                 }
@@ -50,9 +52,10 @@ public class ItemRepositoryImpl implements ItemRepository {
                 int i = 0;
                 for (Iterator<Item> iterator = itemList.iterator(); iterator.hasNext(); ) {
                     Item item = iterator.next();
-                    if (currentTimestamp.getTime() - item.getTimestamp().getTime() < 2000) {
+                    if (currentTimestamp.getTime() - item.getTimestamp().getTime() < TIME_INTERVAL_MILISECONDS) {
                         resultList.addLast(item);
-                    } else if (i > 100) {
+                    } else if (i > LATEST_ELEMENTS_NUMBER) {
+                        // Remove elements that are not in the first 100 and have a timestamp older than 2 seconds.
                         iterator.remove();
                     }
                     i++;
